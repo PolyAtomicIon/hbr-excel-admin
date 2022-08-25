@@ -23,10 +23,11 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import VGrid, { VGridVueTemplate } from "@revolist/vue3-datagrid";
 import MergedColumnTemplate from "./MergedColumnTemplate.vue";
 
-export default {
+export default defineComponent({
   name: "TableView",
   data() {
     return {
@@ -99,7 +100,7 @@ export default {
       this.columns = this.c;
     },
   },
-};
+});
 </script>
 
 <style scoped>

@@ -6,7 +6,6 @@
       <Toolbar> </Toolbar>
       <section class="table">
         <router-view></router-view>
-        <!-- <table-view></table-view> -->
       </section>
     </main>
   </div>
@@ -15,8 +14,9 @@
 <script>
 import LeftDrawer from "./components/LeftDrawer.vue";
 import Toolbar from "./components/Toolbar.vue";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: "App",
   data() {
     return {
@@ -29,13 +29,12 @@ export default {
   },
   mounted() { },
   methods: {},
-};
+});
 </script>
 
 <style>
 html {
   --header-height: 48px;
-
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 }
 
@@ -54,7 +53,9 @@ body {
 
 .wrapper {
   height: 100%;
+  widows: 100%;
   padding: 0;
+  margin: 0;
   display: flex;
 
   /* background: blue; */
@@ -62,8 +63,11 @@ body {
 
 .main-content {
   height: 100%;
-  width: 100%;
-} 
+  width: calc(100% - 72px);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
 
 .table {
   height: calc(100% - var(--header-height));

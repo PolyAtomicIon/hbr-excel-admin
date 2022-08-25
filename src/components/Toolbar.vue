@@ -38,7 +38,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "Toolbar",
   data() {
     return {
@@ -47,7 +49,7 @@ export default {
   },
   components: {},
   methods: {},
-};
+});
 </script>
 
 <style scoped>
@@ -59,6 +61,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  border-bottom: 1px solid rgba(79, 78, 78, 0.4);
 }
 
 ul {
@@ -106,6 +110,7 @@ button {
   border-radius: 15px;
   color: #fff;
   background: rgb(54, 54, 215);
+  cursor: pointer;
 }
 
 

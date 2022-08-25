@@ -8,16 +8,19 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@revolist/revogrid-column-date": "^1.1.0",
+    "@revolist/revogrid-column-numeral": "^1.0.2",
+    "@revolist/revogrid-column-select": "^2.0.2",
     "@revolist/vue3-datagrid": "3.0.0-beta.1",
     "core-js": "^3.6.5",
-    "vue": "3.0.5",
+    "vue": "3.0.11",
     "vue-router": "4.1.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0-0",
+    "@vue/compiler-sfc": "3.0.11",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0"

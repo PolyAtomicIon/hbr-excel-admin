@@ -46,3 +46,97 @@ export function generateFakeDataObject(rowsNumber, colsNumber, cellTemplate) {
         headers
     };
 }
+
+export const columnsData = [
+    {},
+    {
+        name: 'Inventory',
+        prop: 'id',
+    },
+    {
+        name: 'Manufacture',
+        prop: 'manufacturer',
+    },
+    {
+        name: 'Name of a product',
+        prop: 'name',
+    },
+    {
+        name: 'Storage',
+        prop: 'stock',
+    },
+    {
+        name: 'price',
+        prop: 'price',
+        columnType: 'numeric'
+    },
+    {
+        name: 'Sales %',
+        prop: 'sale_percent',
+        columnType: 'numeric'
+    },
+    {
+        name: 'Sales from',
+        prop: 'sale_from',
+        columnType: 'numeric'
+    },
+    {
+        name: 'Variation (name/price/sales)',
+        prop: 'description_short',
+    },
+]
+
+export const rowsData = [
+    {
+        "id": "12424234321",
+        "supplier_id": "346458246246346",
+        "article": "X-1736",
+        "manufacturer": "Manufacturer 1",
+        "name": "Fuchsia Pink Tote Bag",
+        "description_short": "Pink Fuchsia Tote leather bag, decorated with lace",
+        "description_long": "This gorgeous pink fuchsia tote, made of rich color mat leather, decorated with lace, is a perfect day bag. made from two pieces of leather, has beautiful mat gold plastic D shape handles, and a long adjustable strap, that enables you to carry it on your shoulder or crossbody. It belongs to a mini collection of totes from embossed leather, the special effect here is the lace embelishment.",
+        "price": 150.22,
+        "stock": "24",
+        "sale_percent": 15,
+        "sale_from": 15.07,
+        "sale_to": "15.11",
+        "packageLength ": "22",
+        "packageWidth": "12",
+        "packageHeight": "15",
+        "packageWeight": "0.1",
+        rowClass: 'rowClass',
+    },
+    {
+        "id": "GF545d",
+        "supplier_id": "346458246246346",
+        "article": "X-1736",
+        "manufacturer": "Manufacturer 1",
+        "name": "Fuchsia Pink Tote Bag",
+        "description_short": "Pink Fuchsia Tote leather bag, decorated with lace",
+        "description_long": "This gorgeous pink fuchsia tote, made of rich color mat leather, decorated with lace, is a perfect day bag. made from two pieces of leather, has beautiful mat gold plastic D shape handles, and a long adjustable strap, that enables you to carry it on your shoulder or crossbody. It belongs to a mini collection of totes from embossed leather, the special effect here is the lace embelishment.",
+        "price": 150.22,
+        "stock": "24",
+        "sale_percent": 15,
+        "sale_from": 85.07,
+        "sale_to": "15.11",
+        "packageLength ": "22",
+        "packageWidth": "12",
+        "packageHeight": "15",
+        "packageWeight": "0.1",
+        rowClass: 'rowClass',
+    },
+    {
+        rowClass: 'rowClass',
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+];

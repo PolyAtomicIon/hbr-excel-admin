@@ -4,9 +4,11 @@
       <router-link to="/" class="close-btn">X</router-link>
       <ul class="list">
         <li>
-          <router-link to="/">table</router-link>
+          <router-link to="/">overview</router-link>
         </li>
-        <li><a href="#">overview</a></li>
+        <li>
+          <router-link to="/simple">simple</router-link>
+        </li>
         <li>
           <router-link to="/images">images</router-link>
         </li>
@@ -23,17 +25,16 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "LeftDrawer",
   data() {
     return {
-
     }
   },
   components: {},
-  mounted() { },
   methods: {},
-};
+});
 </script>
 
 <style scoped>
