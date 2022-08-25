@@ -1,117 +1,95 @@
 <template>
-  <v-grid
-    :source="rows"
-    :columns="columns"
-    :row-size="20"
-    rowClass="myRowClass"
-    @beforeCellFocus="beforeFocus"
-  />
-  <!-- <button
-    v-if="!isMerged"
-    @click="mergeColumns"
-    style="background: pink; height: 64px; width: 240px"
-  >
-    MERGE
-  </button>
-  <button
-    v-else
-    @click="unmergeColumns"
-    style="background: green; height: 64px; width: 240px"
-  >
-    UNMERGE
-  </button> -->
+  <div class="tile large">
+    <v-grid 
+      ref="grid" 
+      readonly="false" 
+      :source="source" 
+      resize="false" 
+      :columns="headers" 
+      :editors="gridEditors"
+      theme="material" 
+    />
+  </div>
 </template>
 
-<script>
-import VGrid, { VGridVueTemplate } from "@revolist/vue3-datagrid";
-import MergedColumnTemplate from "./MergedColumnTemplate.vue";
 
-export default {
-  name: "Images",
+<script >
+// beforeCellFocus
+import { defineComponent } from 'vue';
+import VGrid, { VGridVueEditor, VGridVueTemplate } from "@revolist/vue3-datagrid";
+import Editor from './Editor.vue';
+import Cell from './Cell.vue';
+import { generateFakeDataObject } from '../dataService';
+
+export default defineComponent({
   data() {
-    return {
-      columns: [
-        {
-          name: "Birth",
-          prop: "birthdate",
-          columnType: "date",
-          size: 150,
-        },
-        {
-          prop: "name",
-          name: "First",
-        },
-        {
-          prop: "details",
-          name: "Second",
-        },
-      ],
-      rows: [
-        {
-          birthdate: "2022-08-24",
-          name: "1",
-          details: "Item 1",
-        },
-        {
-          birthdate: "2022-08-24",
-          name: "2",
-          details: "Item 2",
-        },
-      ],
-      c: [],
-      r: [],
-      isMerged: false,
+    const cellTemplate = VGridVueTemplate(Cell);
+    const d = generateFakeDataObject(100, 25, cellTemplate);
+
+    const button = VGridVueEditor(Editor);
+    const gridEditors = { button };
+    const grid = null;
+
+    return { 
+      grid: grid, 
+      gridEditors, 
+      source: d.source, 
+      headers: d.headers
     };
   },
   components: {
-    VGrid,
-  },
-  mounted() {
-    this.c = this.columns;
-    this.r = this.rows;
+    VGrid
   },
   methods: {
-    beforeFocus(e) {
-      if (this.isMerged) e.preventDefault();
-    },
-    mergeColumns() {
-      const newC = [];
-      const newR = [];
-      this.columns.forEach((c) => {
-        if (c.name !== "First" && c.name !== "Second") {
-          newC.push(c);
-        }
-      });
-      const newMergedColumn = {
-        prop: "namedetails",
-        name: "First / Second",
-        size: 150,
-        resize: true,
-        cellTemplate: VGridVueTemplate(MergedColumnTemplate),
-      };
-      newC.push(newMergedColumn);
-      this.columns = newC;
-
-      // this.rows = newR;
-      this.isMerged = true;
-    },
-    unmergeColumns() {
-      this.isMerged = false;
-      this.columns = this.c;
-    },
-  },
-};
+    // test(e) {
+    //   console.log(e);
+    // }
+  }
+});
 </script>
 
-<style>
-revo-grid {
-  background: rgb(71, 165, 142);
+<style scoped>
+
+body, html {
   height: 100%;
   width: 100%;
+  padding: 20px;
   margin: 0;
+  overflow: hidden;
+  background-color: #f7f9fc;
+  text-align: center;
 }
-.blue {
-  color: blue;
+
+revo-grid {
   display: block;
+}
+
+.tile {
+  background-color: #fff;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 0;
+  box-shadow: 0 0 14px 0 rgba(53, 64, 82, .05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.arrow-down svg {
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+}
+
+revo-grid {
+  width: 100%;
+}
+
+.tile.dark {
+  background-color: #333;
+}
+
+.tile.large {
+  width: 500px;
+  height: 400px;
 }
 </style>

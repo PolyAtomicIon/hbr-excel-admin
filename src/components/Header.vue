@@ -25,18 +25,14 @@
 <script>
 export default {
   name: "LeftDrawer",
-  data() {
-    return {
-
-    }
-  },
+  data() { },
   components: {},
   mounted() { },
   methods: {},
 };
 </script>
 
-<style scoped>
+<style>
 .left-drawer {
   background: #54617d;
   width: 72px;

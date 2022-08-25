@@ -76,7 +76,6 @@ export default {
     },
     mergeColumns() {
       const newC = [];
-      const newR = [];
       this.columns.forEach((c) => {
         if (c.name !== "First" && c.name !== "Second") {
           newC.push(c);
@@ -103,9 +102,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 revo-grid {
-  background: rgb(71, 165, 142);
   height: 100%;
   width: 100%;
   margin: 0;
