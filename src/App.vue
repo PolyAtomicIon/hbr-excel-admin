@@ -3,7 +3,7 @@
     <left-drawer></left-drawer>
 
     <main class="main-content">
-      <header class="header"></header>
+      <Toolbar> </Toolbar>
       <section class="table">
         <router-view></router-view>
         <!-- <table-view></table-view> -->
@@ -14,28 +14,37 @@
 
 <script>
 import LeftDrawer from "./components/LeftDrawer.vue";
+import Toolbar from "./components/Toolbar.vue";
 
 export default {
   name: "App",
-  data() {},
+  data() {
+    return {
+
+    }
+  },
   components: {
     LeftDrawer,
+    Toolbar
   },
-  mounted() {},
+  mounted() { },
   methods: {},
 };
 </script>
 
 <style>
-
-html { 
+html {
   --header-height: 48px;
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 }
 
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
+
 #app {
   height: 100vh;
   width: 100vw;
@@ -51,24 +60,10 @@ body {
   /* background: blue; */
 }
 
-.left-drawer {
-  background: #0000ff;
-  width: 48px;
-  height: 100%;
-
-}
-
 .main-content {
-  background: pink;
   height: 100%;
   width: 100%;
-}
-
-.header {
-  background: green;
-  height: var(--header-height);
-  width: 100%;
-}
+} 
 
 .table {
   height: calc(100% - var(--header-height));
