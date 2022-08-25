@@ -9,6 +9,7 @@
 
 <script>
 import { generateFakeDataDemo } from '../fakeData/dataGenerate';
+import { rowsData } from '../dataService';
 
 
 export default {
@@ -30,6 +31,8 @@ export default {
             for (let key in newData) {
                 this[key] = newData[key];
             }
+
+            this.source = rowsData;
         });
         import('@revolist/vue3-datagrid').then((m) => {
             const types = {};

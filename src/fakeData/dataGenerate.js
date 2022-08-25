@@ -1,35 +1,60 @@
 const defColumns = [
 	{
-		name: 'Name',
-		prop: 'name',
+		name: 'Inventory',
+		prop: 'article',
 		rowDrag: true,
 		sortable: true,
 		order: 'asc',
 		pin: 'colPinStart',
+		size: 150
 	},
 	{
 		sortable: true,
-		name: 'Age',
-		prop: 'age',
+        name: 'Manufacture',
+        prop: 'manufacturer',
 	},
 	{
 		sortable: true,
-		name: 'Company',
-		prop: 'company',
-		size: 200,
+        name: 'Sales %',
+        prop: 'sale_percent',
+        columnType: 'number'
 	},
 	{
-		name: 'Eyes',
-		prop: 'eyeColor',
 		sortable: true,
-		cellTemplate: (createElement, props) => (createElement('span', {
-			class: 'bubble',
-			style: {
-				backgroundColor: props.model[props.prop]
-			},
-		}, props.model[props.prop])
-		)
+        name: 'Sales from',
+        prop: 'sale_from',
+		columnType: 'date',
+		size: 150
 	},
+	{
+		sortable: true,
+        name: 'Sales to',
+        prop: 'sale_to',
+		columnType: 'date',
+		size: 150
+	},
+    {
+        name: 'Variation (name/price/sales)',
+        prop: 'description_short',
+		size: 250
+    },
+    {
+        name: 'Variation (name/price/sales)',
+        prop: 'description_short',
+		size: 250
+    },
+	// {
+	// 	name: 'Eyes',
+	// 	prop: 'eyeColor',
+	// 	sortable: true,
+	// 	cellTemplate: (createElement, props) => (createElement('span', {
+	// 		class: 'bubble',
+	// 		style: {
+	// 			backgroundColor: props.model[props.prop]
+	// 		},
+	// 	}, props.model[props.prop])
+	// 	)
+	// },
 ];
 
 function generateHeader(index) {
@@ -81,35 +106,32 @@ export default function generateFakeDataObject(rows, colsNumber) {
 export function generateFakeDataDemo(rows, colsNumber) {
 	const result = [...rows];
 	const columns = [...defColumns];
-	const nameColumn = columns[0];
-	nameColumn.autoSize = true;
-	nameColumn.name = 'Name(autosize)'
 
-	const companies = Object.keys(rows.reduce((r, p) => {
-		r[p.company] = p.company;
-		return r;
-	}, {}));
-	const companyColumn = columns[2];
-	columns[2] = {
-		...companyColumn,
-		columnType: 'select',
-		source: companies,
-	};
+	// const companies = Object.keys(rows.reduce((r, p) => {
+	// 	r[p.company] = p.company;
+	// 	return r;
+	// }, {}));
+	// const companyColumn = columns[2];
+	// columns[2] = {
+	// 	...companyColumn,
+	// 	columnType: 'select',
+	// 	source: companies,
+	// };
 
-	columns.push({
-		name: 'Birth date',
-		prop: 'date',
-		columnType: 'date',
-		size: 150
-	});
+	// columns.push({
+	// 	name: 'Birth date',
+	// 	prop: 'date',
+	// 	columnType: 'date',
+	// 	size: 150
+	// });
 
-	for (let j = 0; j < colsNumber; j++) {
-		columns.push({
-			name: generateHeader(j),
-			prop: j,
-			columnType: 'number'
-		});
-	}
+	// for (let j = 0; j < colsNumber; j++) {
+	// 	columns.push({
+	// 		name: generateHeader(j),
+	// 		prop: j,
+	// 		columnType: 'number'
+	// 	});
+	// }
 
 	for (let i in result) {
 		result[i]['highlighted'] = result[i]['eyeColor'];
