@@ -1,4 +1,4 @@
-# t
+# Demo of editable spreadsheets
 
 ## Project setup
 ```
